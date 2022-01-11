@@ -7,6 +7,25 @@ metadata:
 
 spec:
   replicas: 1
-  spec:
-    containers:
-      - name: what-to-eat
+  selector:
+    matchLabels:
+      app: what-to-eat
+  template:
+    metadata:
+      labels:
+        app: what-to-eat
+    spec:
+      containers:
+        - name: what-to-eat
+          image: ghcr.io/beleap/what-to-eat:main
+          env:
+            - name: DISCORD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: what-to-eat-cred
+                  key: DISCORD_TOKEN
+            - name: APPLICATION_ID
+              valueFrom:
+                secretKeyRef:
+                  name: what-to-eat-cred
+                  key: APPLICATION_ID
