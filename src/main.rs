@@ -1,5 +1,6 @@
 use serenity::{self, client::EventHandler, Client};
 use std::env;
+use dotenv;
 
 struct Handler;
 
@@ -8,6 +9,8 @@ impl EventHandler for Handler {}
 
 #[tokio::main]
 async fn main() {
+    dotenv::dotenv().ok();
+
     let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
 
     let application_id: u64 = env::var("APPLICATION_ID")
