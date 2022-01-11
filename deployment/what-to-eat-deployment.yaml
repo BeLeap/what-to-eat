@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: what-to-eat-deployment
+  labels:
+    app: what-to-eat
+
+spec:
+  replicas: 1
+  spec:
+    containers:
+      - name: what-to-eat
