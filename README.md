@@ -9,12 +9,12 @@ Currently deploy on kubernetes cluster supported.
 ### Kubernetes
 
 1. Add secret(`DISCORD_BOT`, `APPLICATION_ID`) using name `what-to-eat-cred`
-  ```bash
+  ```console
   kubectl create secret generic what-to-eat-cred \
     --from-literal DISCORD_BOT=xxxxxxxxxxx \
     --from-literal APPLICATION_ID=nnnnnnnnnn
   ```
 2. Create Deployment
-  ```bash
+  ```console
   kubectl apply -f ./deployment/what-to-eat-deployment.yml
   ```
